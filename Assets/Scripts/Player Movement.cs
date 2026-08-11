@@ -109,6 +109,24 @@ public partial class @PlayerMovement: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Blue Portal"",
+                    ""type"": ""Button"",
+                    ""id"": ""7f50ad64-4243-4fff-baa9-be7fff158bce"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Orange Portal"",
+                    ""type"": ""Button"",
+                    ""id"": ""3fc36750-b8c0-4183-8259-6905a2ebbcb1"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -188,6 +206,28 @@ public partial class @PlayerMovement: IInputActionCollection2, IDisposable
                     ""action"": ""Jump"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""f59cdc77-f0f8-4df4-a4fd-8ba7b7150f0c"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Blue Portal"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""9846295b-3f12-408b-8075-159380d6b9d0"",
+                    ""path"": ""<Mouse>/rightButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Orange Portal"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -198,6 +238,8 @@ public partial class @PlayerMovement: IInputActionCollection2, IDisposable
         m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
         m_Player_Movement = m_Player.FindAction("Movement", throwIfNotFound: true);
         m_Player_Jump = m_Player.FindAction("Jump", throwIfNotFound: true);
+        m_Player_BluePortal = m_Player.FindAction("Blue Portal", throwIfNotFound: true);
+        m_Player_OrangePortal = m_Player.FindAction("Orange Portal", throwIfNotFound: true);
     }
 
     ~@PlayerMovement()
@@ -280,6 +322,8 @@ public partial class @PlayerMovement: IInputActionCollection2, IDisposable
     private List<IPlayerActions> m_PlayerActionsCallbackInterfaces = new List<IPlayerActions>();
     private readonly InputAction m_Player_Movement;
     private readonly InputAction m_Player_Jump;
+    private readonly InputAction m_Player_BluePortal;
+    private readonly InputAction m_Player_OrangePortal;
     /// <summary>
     /// Provides access to input actions defined in input action map "Player".
     /// </summary>
@@ -299,6 +343,14 @@ public partial class @PlayerMovement: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "Player/Jump".
         /// </summary>
         public InputAction @Jump => m_Wrapper.m_Player_Jump;
+        /// <summary>
+        /// Provides access to the underlying input action "Player/BluePortal".
+        /// </summary>
+        public InputAction @BluePortal => m_Wrapper.m_Player_BluePortal;
+        /// <summary>
+        /// Provides access to the underlying input action "Player/OrangePortal".
+        /// </summary>
+        public InputAction @OrangePortal => m_Wrapper.m_Player_OrangePortal;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -331,6 +383,12 @@ public partial class @PlayerMovement: IInputActionCollection2, IDisposable
             @Jump.started += instance.OnJump;
             @Jump.performed += instance.OnJump;
             @Jump.canceled += instance.OnJump;
+            @BluePortal.started += instance.OnBluePortal;
+            @BluePortal.performed += instance.OnBluePortal;
+            @BluePortal.canceled += instance.OnBluePortal;
+            @OrangePortal.started += instance.OnOrangePortal;
+            @OrangePortal.performed += instance.OnOrangePortal;
+            @OrangePortal.canceled += instance.OnOrangePortal;
         }
 
         /// <summary>
@@ -348,6 +406,12 @@ public partial class @PlayerMovement: IInputActionCollection2, IDisposable
             @Jump.started -= instance.OnJump;
             @Jump.performed -= instance.OnJump;
             @Jump.canceled -= instance.OnJump;
+            @BluePortal.started -= instance.OnBluePortal;
+            @BluePortal.performed -= instance.OnBluePortal;
+            @BluePortal.canceled -= instance.OnBluePortal;
+            @OrangePortal.started -= instance.OnOrangePortal;
+            @OrangePortal.performed -= instance.OnOrangePortal;
+            @OrangePortal.canceled -= instance.OnOrangePortal;
         }
 
         /// <summary>
@@ -402,5 +466,19 @@ public partial class @PlayerMovement: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnJump(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Blue Portal" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnBluePortal(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Orange Portal" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnOrangePortal(InputAction.CallbackContext context);
     }
 }
