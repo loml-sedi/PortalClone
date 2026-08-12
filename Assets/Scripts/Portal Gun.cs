@@ -29,6 +29,7 @@ public class PortalGun : MonoBehaviour
         Vector3 mousePos = camera.ScreenToWorldPoint(Mouse.current.position.ReadValue()); //Gun to follow mouse
         Vector3 direction = mousePos - transform.position;
         direction.z = 0;
+        
 
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
 
