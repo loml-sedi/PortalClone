@@ -23,6 +23,17 @@ public class PortalGun : MonoBehaviour
         ShootPortal(orangePortal);
     }
 
+    void Update()
+    {
+        Vector3 mousePos = camera.ScreenToWorldPoint(Mouse.current.position.ReadValue());
+        Vector3 direction = mousePos - transform.position;
+        direction.z = 0;
+
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+
+        transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
+    }
+
 
     private void ShootPortal(GameObject portal)
     {
