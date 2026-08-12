@@ -170,11 +170,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3401223479105370509, guid: 6ee135b57ec9ac74aac0582b2fba9858, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.1665928
+      value: -2.7
       objectReference: {fileID: 0}
     - target: {fileID: 3401223479105370509, guid: 6ee135b57ec9ac74aac0582b2fba9858, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.770108
+      value: -0.79
       objectReference: {fileID: 0}
     - target: {fileID: 3401223479105370509, guid: 6ee135b57ec9ac74aac0582b2fba9858, type: 3}
       propertyPath: m_LocalPosition.z
@@ -289,7 +289,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 5
   m_MaskInteraction: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 0.7171641, g: 0.96981126, b: 0.5178426, a: 1}
@@ -585,7 +585,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 5
   m_MaskInteraction: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -608,11 +608,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1148618699362149669, guid: ceb143507487a9c43bc6a6f8b8cbc769, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.3778555
+      value: 3.36
       objectReference: {fileID: 0}
     - target: {fileID: 1148618699362149669, guid: ceb143507487a9c43bc6a6f8b8cbc769, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.6234412
+      value: -0.78
       objectReference: {fileID: 0}
     - target: {fileID: 1148618699362149669, guid: ceb143507487a9c43bc6a6f8b8cbc769, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1013,7 +1013,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 5
   m_MaskInteraction: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 0.5698112, g: 0.5698112, b: 0.5698112, a: 1}
@@ -1168,7 +1168,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
