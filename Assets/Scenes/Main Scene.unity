@@ -124,6 +124,11 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 5534001142839034837, guid: 6ee135b57ec9ac74aac0582b2fba9858, type: 3}
   m_PrefabInstance: {fileID: 1211762748}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &582099002 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3401223479105370509, guid: 6ee135b57ec9ac74aac0582b2fba9858, type: 3}
+  m_PrefabInstance: {fileID: 1211762748}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1105095719
 GameObject:
   m_ObjectHideFlags: 0
@@ -207,6 +212,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Blue Portal
       objectReference: {fileID: 0}
+    - target: {fileID: 5628388508789645333, guid: 6ee135b57ec9ac74aac0582b2fba9858, type: 3}
+      propertyPath: otherPortal
+      value: 
+      objectReference: {fileID: 1705995244}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -302,7 +311,7 @@ Transform:
   m_GameObject: {fileID: 1303223315}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.43, y: -1.46, z: 0}
+  m_LocalPosition: {x: -7.92, y: -1.36, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -637,6 +646,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1297053391372699016, guid: ceb143507487a9c43bc6a6f8b8cbc769, type: 3}
+      propertyPath: otherPortal
+      value: 
+      objectReference: {fileID: 582099002}
     - target: {fileID: 2953753398470248082, guid: ceb143507487a9c43bc6a6f8b8cbc769, type: 3}
       propertyPath: m_Name
       value: Orange Portal
@@ -903,8 +916,8 @@ Transform:
   m_GameObject: {fileID: 1702355628}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.7134, y: -2.5226, z: 0}
-  m_LocalScale: {x: 16.106264, y: 0.9652, z: 1}
+  m_LocalPosition: {x: 0.2467, y: -2.5226, z: 0}
+  m_LocalScale: {x: 19.039215, y: 0.9652, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -912,6 +925,11 @@ Transform:
 --- !u!1 &1705995240 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2953753398470248082, guid: ceb143507487a9c43bc6a6f8b8cbc769, type: 3}
+  m_PrefabInstance: {fileID: 1544043957}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1705995244 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1148618699362149669, guid: ceb143507487a9c43bc6a6f8b8cbc769, type: 3}
   m_PrefabInstance: {fileID: 1544043957}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1803431993
@@ -1037,6 +1055,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1964085784}
   - component: {fileID: 1964085783}
+  - component: {fileID: 1964085785}
   m_Layer: 6
   m_Name: Portal Wall
   m_TagString: Untagged
@@ -1119,6 +1138,52 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &1964085785
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1964085782}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
