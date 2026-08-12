@@ -8,6 +8,7 @@ public class PortalGun : MonoBehaviour
    public GameObject orangePortal;
    public LayerMask portalLayer;
    public Transform firePoint;
+   public float portalDistance = 10f;
 
     public void shootBlue(InputAction.CallbackContext context)
     {
@@ -45,34 +46,29 @@ public class PortalGun : MonoBehaviour
 
         direction.Normalize();
 
-        RaycastHit2D hit = Physics2D.Raycast(mousePosition, direction, 100f, portalLayer); //Detect the portal layer
+        RaycastHit2D hit = Physics2D.Raycast(mousePosition, direction, portalDistance, portalLayer); //Detect the portal layer
  
         if (hit.collider != null)
         {
             Debug.Log("Hit: " + hit.collider.name);
             Debug.Log("Moving portal: " + portal.name);
 
-            // portal.transform.position = hit.point + hit.normal * 0.05f;
-
-            // float angle = Mathf.Atan2(hit.normal.y, hit.normal.x) * Mathf.Rad2Deg; //Calculate the angle
-
-            // portal.transform.rotation = Quaternion.Euler(0,0,angle-90);
-        Vector2 newPosition = hit.point + hit.normal * 0.1f;
+            Vector2 newPosition = hit.point + hit.normal * 0.1f;
  
-        Debug.Log("New portal position: " + newPosition);
+            Debug.Log("New portal position: " + newPosition);
 
-        portal.transform.position = newPosition;
+            portal.transform.position = newPosition;
 
-        Debug.Log(
+            Debug.Log(
             "Actual portal position: " +
             portal.transform.position
-        );
+        )   ;
 
   
         }
         else
-{
+    {
     Debug.Log("RAYCAST DID NOT HIT ANYTHING");
-}
+    }
     }
 }
