@@ -8,6 +8,7 @@ public class PortalGun : MonoBehaviour
    public GameObject orangePortal;
    public LayerMask portalLayer;
    public LayerMask obstacleLayer;
+
    public Transform firePoint;
    public float portalDistance = 10f;
 
@@ -42,10 +43,22 @@ public class PortalGun : MonoBehaviour
 
         direction.Normalize();
 
-        RaycastHit2D hit = Physics2D.Raycast(firePoint.position, direction, portalDistance, portalLayer); //Detect the portal layer
+        LayerMask raycastLayers = portalLayer | obstacleLayer;
+
+        RaycastHit2D hit = Physics2D.Raycast(firePoint.position, direction, portalDistance, raycastLayers); //Detect the portal layer
         Debug.Log("Portal distance: "+hit.distance);
         RaycastHit2D obstacleHit = Physics2D.Raycast(firePoint.position, direction, portalDistance, obstacleLayer);//Detects obstacle
         //Debug.Log("Obstacle distance: "+obstacleHit.distance);
+
+if (obstacleHit.collider != null)
+{
+    Debug.Log("OBSTACLE HIT: " + obstacleHit.collider.gameObject.name);
+    return;
+}
+else
+{
+    Debug.Log("NO OBSTACLE HIT");
+} 
 
 if (hit.collider == null)
 {
@@ -53,32 +66,39 @@ if (hit.collider == null)
     return;
 }
         // Obstacle is closer than portalable surface
-     if (obstacleHit.collider != null && obstacleHit.distance < hit.distance)
-     {
-         Debug.Log("Obstacle is blocking the portal shot.");
-         return;
-     }
-
-    // if (hit.collider.gameObject.layer == LayerMask.NameToLayer("Obstacle"))
-    //     {
-    //         Debug.Log("Obstacle blocking shot!");
-    //         return;
-    //     }
+    //  if (obstacleHit.collider != null && obstacleHit.distance < hit.distance)
+    //  {
+    //      Debug.Log("Obstacle is blocking the portal shot.");
+    //      return;
+    //  }
 
         if (hit.collider != null)
         {
-            Debug.Log("Hit: " + hit.collider.name);
+        //     Debug.Log("Hit: " + hit.collider.name);
 
-            Vector2 newPosition = hit.point + hit.normal * 0.1f;
+        //     Vector2 newPosition = hit.point + hit.normal * 0.1f;
  
-            Debug.Log("New portal position: " + newPosition);
+        //     Debug.Log("New portal position: " + newPosition);
 
-            portal.transform.position = newPosition;
+        //     portal.transform.position = newPosition;
 
-            Debug.Log(
-            "Actual portal position: " +
-            portal.transform.position
-        )   ;
+        //     Debug.Log(
+        //     "Actual portal position: " +
+        //     portal.transform.position
+        // )   ;
+         if (((1 << hit.collider.gameObject.layer) & obstacleLayer) != 0)
+    {
+        // Hit an obstacle - don't place portal
+        Debug.Log("Obstacle hit - portal blocked!");
+        return;
+    }
+
+    if (((1 << hit.collider.gameObject.layer) & portalLayer) != 0)
+    {
+        // Hit a valid portal surface
+         Debug.Log("Portal surface hit!");
+        portal.transform.position = hit.point;
+    }
 
   
         }
