@@ -7,6 +7,7 @@ public class PlayerController : MonoBehaviour
     public Rigidbody2D rb;
     public float moveSpeed = 5f;
     public float jumpForce = 5f;
+    public SpriteRenderer spriteRenderer;
 
     [Header("Ground Check")]
     public Transform groundCheck;
@@ -17,10 +18,16 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
-        rb.linearVelocity = new Vector2(
-            horizontalMovement * moveSpeed,
-            rb.linearVelocity.y
-        );
+        rb.linearVelocity = new Vector2(horizontalMovement * moveSpeed,rb.linearVelocity.y);
+
+        if (horizontalMovement > 0)
+        {
+            spriteRenderer.flipX = false;
+        }
+        else if(horizontalMovement < 0)
+        {
+            spriteRenderer.flipX = true;
+        }
     }
 
     public void Move(InputAction.CallbackContext context)

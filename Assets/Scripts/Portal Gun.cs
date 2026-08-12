@@ -26,7 +26,7 @@ public class PortalGun : MonoBehaviour
 
     void Update()
     {
-        Vector3 mousePos = camera.ScreenToWorldPoint(Mouse.current.position.ReadValue());
+        Vector3 mousePos = camera.ScreenToWorldPoint(Mouse.current.position.ReadValue()); //Gun to follow mouse
         Vector3 direction = mousePos - transform.position;
         direction.z = 0;
 
@@ -53,7 +53,7 @@ public class PortalGun : MonoBehaviour
 if (obstacleHit.collider != null)
 {
     Debug.Log("OBSTACLE HIT: " + obstacleHit.collider.gameObject.name);
-    return;
+    return; //Once it hits the obstacle, nothing will happen
 }
 else
 {
@@ -65,27 +65,9 @@ if (hit.collider == null)
     Debug.Log("No portalable surface found.");
     return;
 }
-        // Obstacle is closer than portalable surface
-    //  if (obstacleHit.collider != null && obstacleHit.distance < hit.distance)
-    //  {
-    //      Debug.Log("Obstacle is blocking the portal shot.");
-    //      return;
-    //  }
 
         if (hit.collider != null)
         {
-        //     Debug.Log("Hit: " + hit.collider.name);
-
-        //     Vector2 newPosition = hit.point + hit.normal * 0.1f;
- 
-        //     Debug.Log("New portal position: " + newPosition);
-
-        //     portal.transform.position = newPosition;
-
-        //     Debug.Log(
-        //     "Actual portal position: " +
-        //     portal.transform.position
-        // )   ;
          if (((1 << hit.collider.gameObject.layer) & obstacleLayer) != 0)
     {
         // Hit an obstacle - don't place portal
