@@ -7,19 +7,18 @@ public class PortalGun : MonoBehaviour
    public GameObject bluePortal;
    public GameObject orangePortal;
    public LayerMask portalLayer;
+   public LayerMask obstacleLayer;
    public Transform firePoint;
    public float portalDistance = 10f;
 
     public void shootBlue(InputAction.CallbackContext context)
     {
-        Debug.Log("ShootBlue function called");
         if (!context.performed) return;
         ShootPortal(bluePortal);
     }
 
     public void shootOrange(InputAction.CallbackContext context)
     {
-        Debug.Log("ShootOrange function called");
         if (!context.performed) return;
         ShootPortal(orangePortal);
     }
@@ -38,20 +37,37 @@ public class PortalGun : MonoBehaviour
 
     private void ShootPortal(GameObject portal)
     {
-        Debug.Log("ShootPortal started");
-        Debug.Log("ShootPortal called with: " + portal.name);
-
         Vector2 mousePosition = camera.ScreenToWorldPoint(Mouse.current.position.ReadValue()); //Get mouse position
         Vector2 direction = mousePosition - (Vector2)camera.transform.position; //Get direction of mouse
 
         direction.Normalize();
 
-        RaycastHit2D hit = Physics2D.Raycast(mousePosition, direction, portalDistance, portalLayer); //Detect the portal layer
- 
+        RaycastHit2D hit = Physics2D.Raycast(firePoint.position, direction, portalDistance, portalLayer); //Detect the portal layer
+        Debug.Log("Portal distance: "+hit.distance);
+        RaycastHit2D obstacleHit = Physics2D.Raycast(firePoint.position, direction, portalDistance, obstacleLayer);//Detects obstacle
+        //Debug.Log("Obstacle distance: "+obstacleHit.distance);
+
+if (hit.collider == null)
+{
+    Debug.Log("No portalable surface found.");
+    return;
+}
+        // Obstacle is closer than portalable surface
+     if (obstacleHit.collider != null && obstacleHit.distance < hit.distance)
+     {
+         Debug.Log("Obstacle is blocking the portal shot.");
+         return;
+     }
+
+    // if (hit.collider.gameObject.layer == LayerMask.NameToLayer("Obstacle"))
+    //     {
+    //         Debug.Log("Obstacle blocking shot!");
+    //         return;
+    //     }
+
         if (hit.collider != null)
         {
             Debug.Log("Hit: " + hit.collider.name);
-            Debug.Log("Moving portal: " + portal.name);
 
             Vector2 newPosition = hit.point + hit.normal * 0.1f;
  

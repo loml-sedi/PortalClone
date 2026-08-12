@@ -26,7 +26,6 @@ public class PlayerController : MonoBehaviour
     public void Move(InputAction.CallbackContext context)
     {
         horizontalMovement = context.ReadValue<float>();
-         Debug.Log("Movement: " + horizontalMovement);
     }
 
     public void Jump(InputAction.CallbackContext context)
