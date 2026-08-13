@@ -4,7 +4,11 @@ public class Teleport : MonoBehaviour
 {
     public Transform otherPortal;
     private bool canTeleport = true;
-    
+
+    public DialogueManager dialogueManager;
+    public DialogueSequence teleportDialogue;
+    private bool teleportDialogueTriggered = false;
+
     private void OnTriggerEnter2D(Collider2D collide)
     {
         if (!canTeleport) return;
@@ -22,7 +26,13 @@ public class Teleport : MonoBehaviour
         Teleport destinationPortal = otherPortal.GetComponent<Teleport>();
         destinationPortal.canTeleport = false;
 
-       Invoke(nameof(EnablePortal), 0.2f);
+        if (!teleportDialogueTriggered && dialogueManager != null && teleportDialogue != null)
+        {
+            teleportDialogueTriggered = true;
+            dialogueManager.StartDialogue(teleportDialogue);
+        }
+
+        Invoke(nameof(EnablePortal), 0.2f);
        destinationPortal.Invoke(nameof(EnablePortal), 0.2f);
 
 
