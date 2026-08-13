@@ -17,7 +17,7 @@ public class DialogueTrigger : MonoBehaviour
         {
             triggered = true;
 
-            dialogueManager.TriggerDialogue(triggerType);
+            dialogueManager.StartDialogue(dialogue);
         }
     }
 }

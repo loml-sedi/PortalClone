@@ -12,6 +12,10 @@ public class PortalGun : MonoBehaviour
    public Transform firePoint;
    public float portalDistance = 10f;
 
+    public DialogueManager dialogueManager;
+    public DialogueSequence portalDialogue;
+    private bool portalDialogueTriggered = false;
+
     public void shootBlue(InputAction.CallbackContext context)
     {
         if (!context.performed) return;
@@ -81,7 +85,13 @@ if (hit.collider == null)
         // Hit a valid portal surface
          Debug.Log("Portal surface hit!");
         portal.transform.position = hit.point;
-    }
+
+            if (!portalDialogueTriggered &&dialogueManager != null &&portalDialogue != null)
+            {
+                    portalDialogueTriggered = true;
+                    dialogueManager.StartDialogue(portalDialogue);
+            }
+        }
 
   
         }

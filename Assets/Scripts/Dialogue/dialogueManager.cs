@@ -5,23 +5,31 @@ public class DialogueManager : MonoBehaviour
 {
     public UIDocument uiDocument;
 
+    public DialogueSequence openingDialogue;
+    public float openingDialogueDelay = 5f;
+
     private VisualElement dialogueBox;
     private Label speakerLabel;
     private Label dialogueLabel;
 
-
     private DialogueSequence currentDialogue;
 
     private int currentLineIndex;
+
+    void Start()
+    {
+        if (openingDialogue != null)
+        {
+            Invoke(nameof(StartOpeningDialogue), openingDialogueDelay);
+        }
+    }
     void Awake()
     {
         var root = uiDocument.rootVisualElement;
 
-        dialogueBox = root.Q<VisualElement>("DialogueBox");
-
-        speakerLabel = root.Q<Label>("SpeakerLabel");
-
-        dialogueLabel = root.Q<Label>("DialogueLabel");
+        dialogueBox = root.Q<VisualElement>("dialogueBox");
+        speakerLabel = root.Q<Label>("speakerLabel");
+        dialogueLabel = root.Q<Label>("dialogueLabel");
 
         HideDialogue();
     }
@@ -39,6 +47,9 @@ public class DialogueManager : MonoBehaviour
 
     void DisplayCurrentLine()
     {
+        if (currentDialogue == null)
+            return;
+
         if (currentLineIndex >= currentDialogue.lines.Length)
         {
             EndDialogue();
@@ -47,50 +58,70 @@ public class DialogueManager : MonoBehaviour
 
         DialogueLine line = currentDialogue.lines[currentLineIndex];
 
-        speakerLabel.text = line.speaker;
-
+        speakerLabel.text = line.speaker.ToString();
         dialogueLabel.text = line.text;
+
+        UpdateSpeakerStyle(line.speaker);
+
+        CancelInvoke(nameof(NextLine));
+
+        Invoke(nameof(NextLine), line.displayTime);
     }
 
     public void NextLine()
     {
+        if (currentDialogue == null)
+            return;
+
         currentLineIndex++;
 
         DisplayCurrentLine();
     }
 
-    public void TriggerDialogue(DialogueTriggerType trigger)
-    {
-        foreach (DialogueLine line in currentDialogue.lines)
-        {
-            if (line.triggerType == trigger)
-            {
-                speakerLabel.text = line.speaker;
-                dialogueLabel.text = line.text;
-
-                ShowDialogue();
-
-                return;
-            }
-        }
-    }
-
     void ShowDialogue()
     {
-        dialogueBox.style.display =
-            DisplayStyle.Flex;
+        dialogueBox.style.display = DisplayStyle.Flex;
     }
 
     void HideDialogue()
     {
-        dialogueBox.style.display =
-            DisplayStyle.None;
+        dialogueBox.style.display = DisplayStyle.None;
     }
 
     void EndDialogue()
     {
+        CancelInvoke(nameof(NextLine));
+
         HideDialogue();
 
         currentDialogue = null;
+        currentLineIndex = 0;
+    }
+
+    void UpdateSpeakerStyle(DialogueSpeaker speaker)
+    {
+        speakerLabel.RemoveFromClassList("wheatley");
+        speakerLabel.RemoveFromClassList("glados");
+
+        switch (speaker)
+        {
+            case DialogueSpeaker.Wheatley:
+                speakerLabel.AddToClassList("wheatley");
+                break;
+
+            case DialogueSpeaker.GLaDOS:
+                speakerLabel.AddToClassList("glados");
+                break;
+        }
+    }
+
+    void StartOpeningDialogue()
+    {
+        StartDialogue(openingDialogue);
+    }
+
+    void OnDestroy()
+    {
+        CancelInvoke();
     }
 }
