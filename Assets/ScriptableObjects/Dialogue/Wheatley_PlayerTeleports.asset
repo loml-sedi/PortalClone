@@ -12,4 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e58bd8e3008acc4aa546327b6652b97, type: 3}
   m_Name: Wheatley_PlayerTeleports
   m_EditorClassIdentifier: Assembly-CSharp::DialogueSequence
-  lines: []
+  lines:
+  - speaker: 0
+    text: Oh! You went through it!
+    displayTime: 2.5
+  - speaker: 0
+    text: That's good
+    displayTime: 2
+  - speaker: 0
+    text: That's... very good
+    displayTime: 3
+  - speaker: 0
+    text: Right, do that again
+    displayTime: 3
