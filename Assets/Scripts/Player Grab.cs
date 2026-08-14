@@ -37,12 +37,7 @@ public class PlayerGrab : MonoBehaviour
     {
         if (!context.performed) return;
 
-        if (grabbedObject != null) //Release already grabbed object
-        {
-            grabbedObject.GetComponent<Rigidbody2D>().simulated = true;
-            grabbedObject = null;
-            return;   
-        }
+        Release();
 
         // Grab nearby object
         if (nearbyObject != null)
@@ -59,5 +54,20 @@ public class PlayerGrab : MonoBehaviour
             grabbedObject.transform.position = grabPoint.position;
         }
 
+    }
+
+    public bool Release()
+    {
+        if (grabbedObject == null) return false;
+
+        Rigidbody2D rb = grabbedObject.GetComponent<Rigidbody2D>();
+
+        if (rb != null)
+        {
+            rb.simulated = true;
+        }
+
+        grabbedObject = null;
+        return true;
     }
 }

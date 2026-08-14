@@ -1768,6 +1768,7 @@ MonoBehaviour:
   portalDistance: 10
   dialogueManager: {fileID: 1225734908}
   portalDialogue: {fileID: 11400000, guid: 1e281f048a500e14b8141d0a38b503af, type: 2}
+  playerGrab: {fileID: 85057102}
 --- !u!4 &1806163359
 Transform:
   m_ObjectHideFlags: 0
