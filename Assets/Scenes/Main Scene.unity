@@ -269,6 +269,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerGrab
   grabPoint: {fileID: 1554934763}
+  dialogueManager: {fileID: 1225734908}
+  firstGrabDialogue: {fileID: 11400000, guid: 25ede5b95f2307341bbb70ab1c490869, type: 2}
 --- !u!1 &105801077
 GameObject:
   m_ObjectHideFlags: 0
