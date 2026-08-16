@@ -8,7 +8,12 @@ public class PlayerGrab : MonoBehaviour
     private GameObject nearbyObject;
     private GameObject grabbedObject;
 
-   private void OnTriggerEnter2D(Collider2D collide)
+    public DialogueManager dialogueManager;
+    public DialogueSequence firstGrabDialogue;
+
+    private bool firstGrabDialoguePlayed = false;
+
+    private void OnTriggerEnter2D(Collider2D collide)
     {
         if (collide.CompareTag("Box"))
         {
@@ -52,6 +57,12 @@ public class PlayerGrab : MonoBehaviour
             }
 
             grabbedObject.transform.position = grabPoint.position;
+
+            if (!firstGrabDialoguePlayed && dialogueManager != null && firstGrabDialogue != null)
+            {
+                firstGrabDialoguePlayed = true;
+                dialogueManager.StartDialogue(firstGrabDialogue);
+            }
         }
 
     }
