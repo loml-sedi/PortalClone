@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: cd1d8200f811cc33bb4204cc8ad719f3
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 11400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 357942
+  packageName: Abandoned Building Interior
+  packageVersion: 1.0
+  assetPath: Assets/PaleHero/Abandoned_Building_Interior/GameReady/TilePalettes/Decals
+    Tiles/Overlay_61.asset
+  uploadId: 853078
