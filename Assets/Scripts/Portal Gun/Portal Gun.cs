@@ -14,17 +14,24 @@ public class PortalGun : MonoBehaviour
 
     public DialogueManager dialogueManager;
     public DialogueSequence portalDialogue;
+    public PlayerGrab playerGrab;
     private bool portalDialogueTriggered = false;
 
     public void shootBlue(InputAction.CallbackContext context)
     {
         if (!context.performed) return;
+
+
+        if (playerGrab.Release()) return;
+        
+
         ShootPortal(bluePortal);
     }
 
     public void shootOrange(InputAction.CallbackContext context)
     {
         if (!context.performed) return;
+        if (playerGrab.Release()) return;
         ShootPortal(orangePortal);
     }
 
