@@ -2,32 +2,21 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
 
+[RequireComponent(typeof(AudioSource))]
 public class BulbLightFlicker : MonoBehaviour
 {
     [SerializeField] float minIntensity;
     [SerializeField] float maxIntensity;
     [SerializeField] float secondsBetweenFlickers;
-
-    [Header("Audio")]
     [SerializeField] AudioClip flickerSound;
-    [SerializeField] AudioClip humLoopSound;
-    [SerializeField] AudioSource flickerAudioSource;
-    [SerializeField] AudioSource humAudioSource;
 
     Light2D myLight;
+    AudioSource audioSource;
 
     private void Start()
     {
         myLight = GetComponent<Light2D>();
-
-        if (humLoopSound != null && humAudioSource != null)
-        {
-            humAudioSource.clip = humLoopSound;
-            humAudioSource.loop = true;
-            humAudioSource.playOnAwake = false;
-            humAudioSource.Play();
-        }
-
+        audioSource = GetComponent<AudioSource>();
         StartCoroutine(LightFlicker());
     }
 
@@ -36,9 +25,9 @@ public class BulbLightFlicker : MonoBehaviour
         yield return new WaitForSeconds(secondsBetweenFlickers);
         myLight.intensity = Random.Range(minIntensity, maxIntensity);
 
-        if (flickerSound != null && flickerAudioSource != null)
+        if (flickerSound != null)
         {
-            flickerAudioSource.PlayOneShot(flickerSound);
+            audioSource.PlayOneShot(flickerSound);
         }
 
         StartCoroutine(LightFlicker());
