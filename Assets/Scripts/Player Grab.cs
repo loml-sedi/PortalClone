@@ -4,10 +4,14 @@ using UnityEngine.InputSystem;
 public class PlayerGrab : MonoBehaviour
 {
     public Transform grabPoint;
-    public DialogueTrigger firstGrabTrigger;
 
     private GameObject nearbyObject;
     private GameObject grabbedObject;
+
+    public DialogueManager dialogueManager;
+    public DialogueSequence firstGrabDialogue;
+
+    private bool firstGrabDialoguePlayed = false;
 
     private void OnTriggerEnter2D(Collider2D collide)
     {
@@ -18,7 +22,7 @@ public class PlayerGrab : MonoBehaviour
         }
     }
 
-    private void OnTriggerExit2D(Collider2D collide)
+      private void OnTriggerExit2D(Collider2D collide)
     {
         if (collide.gameObject == nearbyObject)
         {
@@ -36,11 +40,11 @@ public class PlayerGrab : MonoBehaviour
 
     public void Grab(InputAction.CallbackContext context)
     {
-        if (!context.performed)
-            return;
+        if (!context.performed) return;
 
         Release();
 
+        // Grab nearby object
         if (nearbyObject != null)
         {
             grabbedObject = nearbyObject;
@@ -54,17 +58,18 @@ public class PlayerGrab : MonoBehaviour
 
             grabbedObject.transform.position = grabPoint.position;
 
-            if (firstGrabTrigger != null)
+            if (!firstGrabDialoguePlayed && dialogueManager != null && firstGrabDialogue != null)
             {
-                firstGrabTrigger.FirstGrab();
+                firstGrabDialoguePlayed = true;
+                dialogueManager.StartDialogue(firstGrabDialogue);
             }
         }
+
     }
 
     public bool Release()
     {
-        if (grabbedObject == null)
-            return false;
+        if (grabbedObject == null) return false;
 
         Rigidbody2D rb = grabbedObject.GetComponent<Rigidbody2D>();
 
@@ -74,7 +79,6 @@ public class PlayerGrab : MonoBehaviour
         }
 
         grabbedObject = null;
-
         return true;
     }
 }

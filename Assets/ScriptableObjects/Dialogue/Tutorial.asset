@@ -10,18 +10,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9e58bd8e3008acc4aa546327b6652b97, type: 3}
-  m_Name: Wheatley_WaitTooLong
+  m_Name: Tutorial
   m_EditorClassIdentifier: Assembly-CSharp::DialogueSequence
   lines:
   - speaker: 0
-    text: Erm... you still there?
-    displayTime: 2
+    text: Helo, I am Wheatly
+    displayTime: 3
+  - speaker: 1
+    text: Hello, I am GLaDOS
+    displayTime: 3
   - speaker: 0
-    text: Because you've been standing there for quite a while.
-    displayTime: 2.5
-  - speaker: 0
-    text: You do know you're supposed to... well... do something, don't you?
-    displayTime: 3.5
-  - speaker: 0
-    text: Go on. Have a look around.
-    displayTime: 2
+    text: oH
+    displayTime: 3
+  - speaker: 1
+    text: You seem surprised
+    displayTime: 3
