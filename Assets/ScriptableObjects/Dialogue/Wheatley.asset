@@ -10,15 +10,24 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9e58bd8e3008acc4aa546327b6652b97, type: 3}
-  m_Name: Wheatley_portalCreated
+  m_Name: Wheatley
   m_EditorClassIdentifier: Assembly-CSharp::DialogueSequence
   lines:
   - speaker: 0
-    text: Oh, you did it!
+    text: Well, would you look at that!
     displayTime: 2
   - speaker: 0
-    text: That's a portal, very useful
+    text: Another test completed
+    displayTime: 2.2
+  - speaker: 0
+    text: You're actually getting rather good at this
     displayTime: 3
   - speaker: 0
-    text: Probably don't fall through it, though
-    displayTime: 4
+    text: Which is excellent news for you.
+    displayTime: 2.5
+  - speaker: 0
+    text: And slightly concerning news for me
+    displayTime: 2.2
+  - speaker: 0
+    text: Right! On to the next one.
+    displayTime: 2

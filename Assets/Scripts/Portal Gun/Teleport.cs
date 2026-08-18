@@ -5,10 +5,7 @@ public class Teleport : MonoBehaviour
     public Transform otherPortal;
     private bool canTeleport = true;
 
-    public DialogueManager dialogueManager;
-    public DialogueSequence teleportDialogue;
-    private bool teleportDialogueTriggered = false;
-
+    public DialogueTrigger dialogueTrigger; 
     private void OnTriggerEnter2D(Collider2D collide)
     {
         if (!canTeleport) return;
@@ -26,10 +23,9 @@ public class Teleport : MonoBehaviour
         Teleport destinationPortal = otherPortal.GetComponent<Teleport>();
         destinationPortal.canTeleport = false;
 
-        if (!teleportDialogueTriggered && dialogueManager != null && teleportDialogue != null)
+        if (collide.CompareTag("Player") && dialogueTrigger != null)
         {
-            teleportDialogueTriggered = true;
-            dialogueManager.StartDialogue(teleportDialogue);
+            dialogueTrigger.TriggerDialogue();
         }
 
         Invoke(nameof(EnablePortal), 0.2f);

@@ -129,6 +129,76 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3401223479105370509, guid: 6ee135b57ec9ac74aac0582b2fba9858, type: 3}
   m_PrefabInstance: {fileID: 702551793}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &144589503
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 144589506}
+  - component: {fileID: 144589505}
+  - component: {fileID: 144589504}
+  m_Layer: 5
+  m_Name: PauseMenu
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &144589504
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 144589503}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54d92201b521f8940add3f75341564e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PauseMenu
+  uiDocument: {fileID: 144589505}
+  pauseAction: {fileID: -5952602994879362836, guid: 522fac30e1af69041abd44e8b83a8b89, type: 3}
+--- !u!114 &144589505
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 144589503}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 19102, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.dll::UnityEngine.UIElements.UIDocument
+  m_PanelSettings: {fileID: 11400000, guid: bbe85d90f74bd9d418b58f7de5ad6f7b, type: 2}
+  m_ParentUI: {fileID: 0}
+  sourceAsset: {fileID: 9197481963319205126, guid: 03e45ed6ba2c65245bf71dcb8b9627e2, type: 3}
+  m_SortingOrder: 0
+  m_Position: 0
+  m_WorldSpaceSizeMode: 1
+  m_WorldSpaceWidth: 1920
+  m_WorldSpaceHeight: 1080
+  m_PivotReferenceSize: 0
+  m_Pivot: 0
+  m_WorldSpaceCollider: {fileID: 0}
+--- !u!4 &144589506
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 144589503}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &230047300
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -185,6 +255,10 @@ PrefabInstance:
       propertyPath: dialogueManager
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 1297053391372699016, guid: ceb143507487a9c43bc6a6f8b8cbc769, type: 3}
+      propertyPath: dialogueTrigger
+      value: 
+      objectReference: {fileID: 2014821727}
     - target: {fileID: 1297053391372699016, guid: ceb143507487a9c43bc6a6f8b8cbc769, type: 3}
       propertyPath: teleportDialogue
       value: 
@@ -523,6 +597,10 @@ PrefabInstance:
       propertyPath: dialogueManager
       value: 
       objectReference: {fileID: 926815745}
+    - target: {fileID: 5628388508789645333, guid: 6ee135b57ec9ac74aac0582b2fba9858, type: 3}
+      propertyPath: dialogueTrigger
+      value: 
+      objectReference: {fileID: 2014821727}
     - target: {fileID: 5628388508789645333, guid: 6ee135b57ec9ac74aac0582b2fba9858, type: 3}
       propertyPath: teleportDialogue
       value: 
@@ -1210,9 +1288,9 @@ MonoBehaviour:
     m_Bits: 256
   firePoint: {fileID: 1585439765}
   portalDistance: 10
-  dialogueManager: {fileID: 926815745}
-  portalDialogue: {fileID: 11400000, guid: 1e281f048a500e14b8141d0a38b503af, type: 2}
   playerGrab: {fileID: 0}
+  portalTrigger: {fileID: 0}
+  firstPortalTrigger: {fileID: 0}
 --- !u!4 &1361326956
 Transform:
   m_ObjectHideFlags: 0
@@ -1520,6 +1598,59 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2014821726
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2014821728}
+  - component: {fileID: 2014821727}
+  m_Layer: 0
+  m_Name: Dialogue_Teleport
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2014821727
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2014821726}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f3eee7f45678fb46b839794811514b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DialogueTrigger
+  dialogue: {fileID: 11400000, guid: 7b2fa47ee11ada84a8db6e2dc50ef6cf, type: 2}
+  dialogueManager: {fileID: 926815745}
+  triggerType: 5
+  triggerOnce: 1
+  dialogueDelay: 0
+  moveAction: {fileID: 0}
+  waitTime: 10
+  nextDialogueTrigger: {fileID: 2014821727}
+  dialogueID: Teleport
+--- !u!4 &2014821728
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2014821726}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2095867953
 GameObject:
   m_ObjectHideFlags: 0
@@ -1587,3 +1718,5 @@ SceneRoots:
   - {fileID: 1864677600}
   - {fileID: 460380618}
   - {fileID: 2095867955}
+  - {fileID: 144589506}
+  - {fileID: 2014821728}

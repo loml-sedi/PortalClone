@@ -14,6 +14,7 @@ public class PortalGun : MonoBehaviour
 
     public PlayerGrab playerGrab;
     public DialogueTrigger portalTrigger;
+    public DialogueTrigger firstPortalTrigger;
 
     public void shootBlue(InputAction.CallbackContext context)
     {
