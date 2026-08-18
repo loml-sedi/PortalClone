@@ -10,6 +10,7 @@ public enum DialogueTriggerType
     ActivatePortal,
 
     FirstGrab,
+    Teleport,
 
     CompletePuzzle,
     FailPuzzle,

@@ -5,10 +5,12 @@ using UnityEngine.UIElements;
 
 public class LoadingScreen : MonoBehaviour
 {
-    [SerializeField] private string nextSceneName = "TestChamber1";
+    [SerializeField] private string nextSceneName = "Bedroom";
     [SerializeField] private float loadingDuration = 10f;
 
     private UIDocument uiDocument;
+    private VisualElement root;
+    private VisualElement loadingScreen;
     private VisualElement progressFill;
     private Label progressLabel;
 
@@ -16,19 +18,35 @@ public class LoadingScreen : MonoBehaviour
     {
         uiDocument = GetComponent<UIDocument>();
 
-        VisualElement root = uiDocument.rootVisualElement;
+        root = uiDocument.rootVisualElement;
 
+        loadingScreen = root.Q<VisualElement>("LoadingScreen");
         progressFill = root.Q<VisualElement>("ProgressFill");
         progressLabel = root.Q<Label>("ProgressLabel");
+
+        if (loadingScreen != null)
+        {
+            loadingScreen.style.display = DisplayStyle.None;
+        }
     }
 
-    private void Start()
+    public void LoadNextScene()
     {
-        StartCoroutine(LoadAfterDelay());
+        StartCoroutine(LoadAfterDelay(nextSceneName));
     }
 
-    private IEnumerator LoadAfterDelay()
+    public void LoadScene(string sceneName)
     {
+        StartCoroutine(LoadAfterDelay(sceneName));
+    }
+
+    private IEnumerator LoadAfterDelay(string sceneName)
+    {
+        if (loadingScreen != null)
+        {
+            loadingScreen.style.display = DisplayStyle.Flex;
+        }
+
         float elapsed = 0f;
 
         while (elapsed < loadingDuration)
@@ -52,6 +70,6 @@ public class LoadingScreen : MonoBehaviour
             yield return null;
         }
 
-        SceneManager.LoadScene(nextSceneName);
+        SceneManager.LoadScene(sceneName);
     }
 }

@@ -326,6 +326,14 @@ public class DialogueTrigger : MonoBehaviour
         }
     }
 
+    public void Teleport()
+    {
+        if (triggerType == DialogueTriggerType.Teleport)
+        {
+            TriggerDialogue();
+        }
+    }
+
 
     public void ResetTrigger()
     {

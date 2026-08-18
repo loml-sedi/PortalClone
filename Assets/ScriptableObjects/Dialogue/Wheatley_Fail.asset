@@ -10,18 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9e58bd8e3008acc4aa546327b6652b97, type: 3}
-  m_Name: Wheatley_PlayerTeleports
+  m_Name: Wheatley_Fail
   m_EditorClassIdentifier: Assembly-CSharp::DialogueSequence
   lines:
   - speaker: 0
-    text: Oh! You went through it!
+    text: Hmm... This seems to be taking a while
     displayTime: 2.5
   - speaker: 0
-    text: That's good
-    displayTime: 2
-  - speaker: 0
-    text: That's... very good
+    text: Maybe try looking at it from a different angle
     displayTime: 3
   - speaker: 0
-    text: Right, do that again
-    displayTime: 3
+    text: Or... just keep doing what you're doing
+    displayTime: 2.5

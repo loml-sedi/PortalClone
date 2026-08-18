@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e58bd8e3008acc4aa546327b6652b97, type: 3}
+  m_Name: Glados_Test3
+  m_EditorClassIdentifier: Assembly-CSharp::DialogueSequence
+  lines:
+  - speaker: 1
+    text: Test complete.
+    displayTime: 1.5
+  - speaker: 1
+    text: That was... acceptable.
+    displayTime: 2.2
+  - speaker: 1
+    text: You may proceed now
+    displayTime: 2

@@ -7,9 +7,7 @@ public class MainMenu : MonoBehaviour
     [Header("UI")]
     [SerializeField] private UIDocument uiDocument;
 
-    [Header("Scenes")]
-    [SerializeField] private string loadingSceneName = "LoadingScreen";
-
+    public LoadingScreen loadingScreen;
     private Button playButton;
     private Button settingsButton;
     private Button extrasButton;
@@ -57,7 +55,7 @@ public class MainMenu : MonoBehaviour
     {
         Debug.Log("Starting game...");
 
-        SceneManager.LoadScene(loadingSceneName);
+        loadingScreen.LoadScene("Bedroom");
     }
 
     private void OpenSettings()
