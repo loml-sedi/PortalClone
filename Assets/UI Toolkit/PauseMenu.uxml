@@ -1,8 +1,8 @@
 <ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <Style src="project://database/Assets/UI%20Toolkit/PauseMenu.uss?fileID=7433441132597879392&amp;guid=086671c666aa94d4298f646365ca819f&amp;type=3#PauseMenu"/>
+
     <ui:VisualElement name="PauseMenu">
 
-        <ui:VisualElement name="PauseOverlay" />
         <ui:VisualElement name="PausePanel">
 
             <ui:Label
@@ -24,6 +24,7 @@
                     text="MAIN MENU" />
 
             </ui:VisualElement>
+
             <ui:Button
                 name="DoneButton"
                 text="DONE" />
@@ -31,5 +32,4 @@
         </ui:VisualElement>
 
     </ui:VisualElement>
-
 </ui:UXML>
