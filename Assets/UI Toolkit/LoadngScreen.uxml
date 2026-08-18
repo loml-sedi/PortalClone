@@ -1,0 +1,13 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI%20Toolkit/LoadingScreen.uss?fileID=7433441132597879392&amp;guid=7e72ba76fb371d744a1c937782b32ad1&amp;type=3#LoadingScreen"/>
+    <ui:VisualElement name="LoadingScreen">
+        <ui:VisualElement name="LoadingContent">
+            <ui:Label name="LoadingTitle" text="APERTURE TESTING"/>
+            <ui:Label name="LoadingMessage" text="INITIALISING TEST CHAMBER..."/>
+            <ui:VisualElement name="ProgressBar">
+                <ui:VisualElement name="ProgressFill"/>
+            </ui:VisualElement>
+            <ui:Label name="ProgressLabel" text="0%"/>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>
