@@ -9,6 +9,8 @@ public enum DialogueTriggerType
     PressButton,
     ActivatePortal,
 
+    FirstGrab,
+
     CompletePuzzle,
     FailPuzzle,
 

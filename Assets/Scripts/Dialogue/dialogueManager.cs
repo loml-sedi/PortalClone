@@ -16,6 +16,9 @@ public class DialogueManager : MonoBehaviour
 
     private int currentLineIndex;
 
+    private DialogueTrigger currentTrigger;
+
+
     void Start()
     {
         if (openingDialogue != null)
@@ -23,6 +26,8 @@ public class DialogueManager : MonoBehaviour
             Invoke(nameof(StartOpeningDialogue), openingDialogueDelay);
         }
     }
+
+
     void Awake()
     {
         var root = uiDocument.rootVisualElement;
@@ -34,22 +39,40 @@ public class DialogueManager : MonoBehaviour
         HideDialogue();
     }
 
+
     public void StartDialogue(DialogueSequence dialogue)
     {
         currentDialogue = dialogue;
 
         currentLineIndex = 0;
 
+        currentTrigger = null;
+
         ShowDialogue();
 
         DisplayCurrentLine();
     }
+    public void StartDialogue(DialogueSequence dialogue, DialogueTrigger trigger)
+    {
+        currentDialogue = dialogue;
+
+        currentLineIndex = 0;
+
+        
+        currentTrigger = trigger;
+
+        ShowDialogue();
+
+        DisplayCurrentLine();
+    }
+
 
     void DisplayCurrentLine()
     {
         if (currentDialogue == null)
             return;
 
+       
         if (currentLineIndex >= currentDialogue.lines.Length)
         {
             EndDialogue();
@@ -78,25 +101,34 @@ public class DialogueManager : MonoBehaviour
         DisplayCurrentLine();
     }
 
-    void ShowDialogue()
-    {
-        dialogueBox.style.display = DisplayStyle.Flex;
-    }
-
-    void HideDialogue()
-    {
-        dialogueBox.style.display = DisplayStyle.None;
-    }
-
     void EndDialogue()
     {
         CancelInvoke(nameof(NextLine));
 
         HideDialogue();
 
+        DialogueTrigger finishedTrigger = currentTrigger;
+
         currentDialogue = null;
         currentLineIndex = 0;
+        currentTrigger = null;
+        if (finishedTrigger != null)
+        {
+            finishedTrigger.DialogueFinished();
+        }
     }
+
+    void ShowDialogue()
+    {
+        dialogueBox.style.display = DisplayStyle.Flex;
+    }
+
+
+    void HideDialogue()
+    {
+        dialogueBox.style.display = DisplayStyle.None;
+    }
+
 
     void UpdateSpeakerStyle(DialogueSpeaker speaker)
     {
@@ -114,6 +146,7 @@ public class DialogueManager : MonoBehaviour
                 break;
         }
     }
+
 
     void StartOpeningDialogue()
     {
