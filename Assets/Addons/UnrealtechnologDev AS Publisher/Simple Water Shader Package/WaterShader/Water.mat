@@ -56,7 +56,7 @@ Material:
     m_Ints: []
     m_Floats:
     - _BasedOnWorldScale: 0
-    - _Emission: 0.06
+    - _Emission: 0.077
     - _FoamAmount: 0.18
     - _FoamShoreSpeed: 0.015
     - _FoamSpeed: 0.004
