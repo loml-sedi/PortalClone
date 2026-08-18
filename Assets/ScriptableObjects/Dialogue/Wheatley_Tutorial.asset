@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e58bd8e3008acc4aa546327b6652b97, type: 3}
+  m_Name: Wheatley_Tutorial
+  m_EditorClassIdentifier: Assembly-CSharp::DialogueSequence
+  lines:
+  - speaker: 0
+    text: Ah! There we are. Movement. Excellent.
+    displayTime: 2.3
+  - speaker: 0
+    text: Right, let's get you properly started.
+    displayTime: 2.5
+  - speaker: 0
+    text: Have a look around. There's a test chamber just ahead.
+    displayTime: 3.5
+  - speaker: 0
+    text: You'll need to figure out how to get through it.
+    displayTime: 2.5
+  - speaker: 0
+    text: Don't worry. I'm sure you'll work it out.
+    displayTime: 2
+  - speaker: 0
+    text: Probably.
+    displayTime: 1.5
