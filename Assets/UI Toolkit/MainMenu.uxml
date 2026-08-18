@@ -1,0 +1,24 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI%20Toolkit/MainMenu.uss?fileID=7433441132597879392&amp;guid=6a13cea23df60f248b4b1754fe1361ee&amp;type=3#MainMenu"/>
+    <ui:VisualElement name="MainMenu">
+        <ui:VisualElement name="BackgroundImage"/>
+        <ui:VisualElement name="MenuContent">
+            <ui:Button name="PlayButton">
+                <ui:VisualElement name="ButtonBackground"/>
+                <ui:Label name="ButtonText" text="PLAY"/>
+            </ui:Button>
+            <ui:Button name="SettingsButton">
+                <ui:VisualElement name="ButtonBackground"/>
+                <ui:Label name="ButtonText" text="SETTINGS"/>
+            </ui:Button>
+            <ui:Button name="ExtrasButton">
+                <ui:VisualElement name="ButtonBackground"/>
+                <ui:Label name="ButtonText" text="EXTRAS"/>
+            </ui:Button>
+            <ui:Button name="QuitButton">
+                <ui:VisualElement name="ButtonBackground"/>
+                <ui:Label name="ButtonText" text="QUIT"/>
+            </ui:Button>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

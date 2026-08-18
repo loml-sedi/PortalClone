@@ -1,0 +1,61 @@
+#LoadingScreen {
+    width: 100%;
+    height: 100%;
+
+    background-color: rgb(235, 235, 235);
+}
+
+#LoadingContent {
+    position: absolute;
+
+    width: 500px;
+
+    left: 50%;
+    top: 50%;
+
+    translate: -50% -50%;
+
+    align-items: center;
+}
+
+#LoadingTitle {
+    font-size: 28px;
+
+    color: rgb(40, 40, 40);
+
+    -unity-font-style: bold;
+
+    margin-bottom: 50px;
+}
+
+#LoadingMessage {
+    font-size: 16px;
+
+    color: rgb(90, 90, 90);
+
+    margin-bottom: 15px;
+}
+
+#ProgressBar {
+    width: 500px;
+    height: 8px;
+
+    background-color: rgb(190, 190, 190);
+
+    border-radius: 0;
+}
+
+#ProgressFill {
+    width: 0%;
+    height: 100%;
+
+    background-color: rgb(245, 150, 40);
+}
+
+#ProgressLabel {
+    margin-top: 10px;
+
+    font-size: 14px;
+
+    color: rgb(90, 90, 90);
+}
