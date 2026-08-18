@@ -1,7 +1,7 @@
 <ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <Style src="project://database/Assets/UI%20Toolkit/MainMenu.uss?fileID=7433441132597879392&amp;guid=6a13cea23df60f248b4b1754fe1361ee&amp;type=3#MainMenu"/>
     <ui:VisualElement name="MainMenu">
-        <ui:VisualElement name="BackgroundImage"/>
+        <ui:VisualElement name="BackgroundImage" style="background-image: url(&quot;project://database/Assets/Images/Portal%202.png?fileID=2800000&amp;guid=6ea85f0db07ea2e47ab288f96c8419f0&amp;type=3#Portal 2&quot;);"/>
         <ui:VisualElement name="MenuContent">
             <ui:Button name="PlayButton">
                 <ui:VisualElement name="ButtonBackground"/>
