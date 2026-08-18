@@ -6,7 +6,7 @@ public class PlayerController : MonoBehaviour
     [Header("Player")]
     public Rigidbody2D rb;
     public float moveSpeed = 5f;
-    public float jumpForce = 5f;
+    public float jumpForce = 4f;
     public SpriteRenderer spriteRenderer;
 
     [Header("Ground Check")]
