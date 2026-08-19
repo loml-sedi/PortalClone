@@ -3,27 +3,60 @@ using UnityEngine;
 public class CameraFollow : MonoBehaviour
 {
     [SerializeField] private Transform target;
+    [SerializeField] private BoxCollider2D cameraBounds;
+
+    [Header("Camera Settings")]
     [SerializeField] private float smoothTime = 0.15f;
-    [SerializeField] private Vector3 offset = new Vector3(0f, 0f, -10f);
 
-    [Header("Optional Bounds (leave at 0 to disable)")]
-    [SerializeField] private bool useBounds = false;
-    [SerializeField] private float minX, maxX, minY, maxY;
+    private Vector3 velocity;
+    private Camera cam;
 
-    private Vector3 velocity = Vector3.zero;
+    private void Awake()
+    {
+        cam = GetComponent<Camera>();
+    }
 
     private void LateUpdate()
     {
-        if (target == null) return;
+        if (target == null)
+            return;
 
-        Vector3 desiredPosition = target.position + offset;
+        Vector3 targetPosition = target.position;
 
-        if (useBounds)
+        // Keep camera behind the 2D scene
+        targetPosition.z = transform.position.z;
+
+        if (cameraBounds != null)
         {
-            desiredPosition.x = Mathf.Clamp(desiredPosition.x, minX, maxX);
-            desiredPosition.y = Mathf.Clamp(desiredPosition.y, minY, maxY);
+            Bounds bounds = cameraBounds.bounds;
+
+            float halfHeight = cam.orthographicSize;
+            float halfWidth = halfHeight * cam.aspect;
+
+            float minX = bounds.min.x + halfWidth;
+            float maxX = bounds.max.x - halfWidth;
+
+            float minY = bounds.min.y + halfHeight;
+            float maxY = bounds.max.y - halfHeight;
+
+            targetPosition.x = Mathf.Clamp(
+                targetPosition.x,
+                minX,
+                maxX
+            );
+
+            targetPosition.y = Mathf.Clamp(
+                targetPosition.y,
+                minY,
+                maxY
+            );
         }
 
-        transform.position = Vector3.SmoothDamp(transform.position, desiredPosition, ref velocity, smoothTime);
+        transform.position = Vector3.SmoothDamp(
+            transform.position,
+            targetPosition,
+            ref velocity,
+            smoothTime
+        );
     }
 }

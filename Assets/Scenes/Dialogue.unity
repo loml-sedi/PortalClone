@@ -237,6 +237,7 @@ MonoBehaviour:
   waitTime: 10
   nextDialogueTrigger: {fileID: 0}
   dialogueID: Explore
+  loadingScreen: {fileID: 0}
 --- !u!4 &194677825
 Transform:
   m_ObjectHideFlags: 0
@@ -370,6 +371,106 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1026136799}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &347317079
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 347317081}
+  - component: {fileID: 347317080}
+  m_Layer: 0
+  m_Name: ExploreArea
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &347317080
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 347317079}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70ca3ae3f1323804a97a250d49c431d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ExploreAreaTrigger
+  inactivityTime: 30
+  dialogueTrigger: {fileID: 2085788926}
+--- !u!4 &347317081
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 347317079}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -6.15056, y: -2.32776, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &382780070
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 382780072}
+  - component: {fileID: 382780071}
+  m_Layer: 0
+  m_Name: Dialogue_EndTest2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &382780071
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 382780070}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f3eee7f45678fb46b839794811514b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DialogueTrigger
+  dialogue: {fileID: 11400000, guid: c95e9b792b3328340aa17d46dc6f7fe0, type: 2}
+  dialogueManager: {fileID: 926815745}
+  triggerType: 9
+  triggerOnce: 1
+  dialogueDelay: 0
+  moveAction: {fileID: 0}
+  waitTime: 10
+  nextDialogueTrigger: {fileID: 0}
+  dialogueID: Test2_End
+  loadingScreen: {fileID: 0}
+--- !u!4 &382780072
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 382780070}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -6.15056, y: -2.32776, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &414636649
 GameObject:
   m_ObjectHideFlags: 0
@@ -434,13 +535,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DialogueTrigger
   dialogue: {fileID: 11400000, guid: a41e0c6e90a533f43832d1e34cdea762, type: 2}
   dialogueManager: {fileID: 926815745}
-  triggerType: 8
+  triggerType: 6
   triggerOnce: 0
   dialogueDelay: 0
   moveAction: {fileID: -1680190386980627800, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   waitTime: 10
   nextDialogueTrigger: {fileID: 2095867954}
   dialogueID: WaitTooLong
+  loadingScreen: {fileID: 0}
 --- !u!4 &460380618
 Transform:
   m_ObjectHideFlags: 0
@@ -451,6 +553,60 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &527459076
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 527459078}
+  - component: {fileID: 527459077}
+  m_Layer: 0
+  m_Name: Dialogue_EndTest1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &527459077
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 527459076}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f3eee7f45678fb46b839794811514b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DialogueTrigger
+  dialogue: {fileID: 11400000, guid: fc53c3bac9743514f86913a7a66a8ee7, type: 2}
+  dialogueManager: {fileID: 926815745}
+  triggerType: 9
+  triggerOnce: 1
+  dialogueDelay: 0
+  moveAction: {fileID: 0}
+  waitTime: 10
+  nextDialogueTrigger: {fileID: 0}
+  dialogueID: Test1_End
+  loadingScreen: {fileID: 0}
+--- !u!4 &527459078
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 527459076}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -6.15056, y: -2.32776, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -623,6 +779,59 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &595786391
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 595786393}
+  - component: {fileID: 595786392}
+  m_Layer: 0
+  m_Name: PuzzleTimeout_GLADOS
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &595786392
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 595786391}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78d26365ddd26a144b3978c6872bc2fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PuzzleTimeoutManager
+  timeoutDialogues:
+  - time: 45
+    dialogueTrigger: {fileID: 790881547}
+    triggered: 0
+  - time: 90
+    dialogueTrigger: {fileID: 1073137057}
+    triggered: 0
+--- !u!4 &595786393
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 595786391}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -6.15056, y: -2.32776, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 790881548}
+  - {fileID: 1073137058}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &702551793
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -700,6 +909,60 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6ee135b57ec9ac74aac0582b2fba9858, type: 3}
+--- !u!1 &790881546
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 790881548}
+  - component: {fileID: 790881547}
+  m_Layer: 0
+  m_Name: Dialogue_FailGlados
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &790881547
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 790881546}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f3eee7f45678fb46b839794811514b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DialogueTrigger
+  dialogue: {fileID: 11400000, guid: 8d911033b7503f7459ffe3cf81e5865b, type: 2}
+  dialogueManager: {fileID: 926815745}
+  triggerType: 5
+  triggerOnce: 1
+  dialogueDelay: 0
+  moveAction: {fileID: 0}
+  waitTime: 10
+  nextDialogueTrigger: {fileID: 0}
+  dialogueID: Glados_Fail
+  loadingScreen: {fileID: 0}
+--- !u!4 &790881548
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 790881546}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 595786393}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &797782417
 GameObject:
   m_ObjectHideFlags: 0
@@ -1048,6 +1311,60 @@ Transform:
   m_Children: []
   m_Father: {fileID: 414636650}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &961990585
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 961990587}
+  - component: {fileID: 961990586}
+  m_Layer: 0
+  m_Name: Dialogue_EndTest3
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &961990586
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 961990585}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f3eee7f45678fb46b839794811514b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DialogueTrigger
+  dialogue: {fileID: 11400000, guid: 49189816af93694488fee9eb20a0531e, type: 2}
+  dialogueManager: {fileID: 926815745}
+  triggerType: 9
+  triggerOnce: 1
+  dialogueDelay: 0
+  moveAction: {fileID: 0}
+  waitTime: 10
+  nextDialogueTrigger: {fileID: 0}
+  dialogueID: Test3_End
+  loadingScreen: {fileID: 0}
+--- !u!4 &961990587
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 961990585}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -6.15056, y: -2.32776, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1026136793
 GameObject:
   m_ObjectHideFlags: 0
@@ -1342,6 +1659,60 @@ Transform:
   - {fileID: 1361326956}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1073137056
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1073137058}
+  - component: {fileID: 1073137057}
+  m_Layer: 0
+  m_Name: Dialogue_FailGlados2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1073137057
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1073137056}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f3eee7f45678fb46b839794811514b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DialogueTrigger
+  dialogue: {fileID: 11400000, guid: ee23401c1e3de2342932d4a26f800b21, type: 2}
+  dialogueManager: {fileID: 926815745}
+  triggerType: 5
+  triggerOnce: 1
+  dialogueDelay: 0
+  moveAction: {fileID: 0}
+  waitTime: 10
+  nextDialogueTrigger: {fileID: 0}
+  dialogueID: Glados_Fail2
+  loadingScreen: {fileID: 0}
+--- !u!4 &1073137058
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1073137056}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 595786393}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1361326954
 GameObject:
   m_ObjectHideFlags: 0
@@ -1384,6 +1755,8 @@ MonoBehaviour:
   firePoint: {fileID: 1585439765}
   portalDistance: 10
   playerGrab: {fileID: 0}
+  bluePlaced: 0
+  orangePlaced: 0
   portalTrigger: {fileID: 0}
   firstPortalTrigger: {fileID: 0}
   exploreAreaTrigger: {fileID: 0}
@@ -1501,6 +1874,7 @@ MonoBehaviour:
   waitTime: 10
   nextDialogueTrigger: {fileID: 0}
   dialogueID: Grab
+  loadingScreen: {fileID: 0}
 --- !u!4 &1488704923
 Transform:
   m_ObjectHideFlags: 0
@@ -1511,6 +1885,60 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1516154611
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1516154613}
+  - component: {fileID: 1516154612}
+  m_Layer: 0
+  m_Name: Dialogue_StartTest2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1516154612
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1516154611}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f3eee7f45678fb46b839794811514b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DialogueTrigger
+  dialogue: {fileID: 11400000, guid: f827c59ab1c1c2e408b8f06393aef932, type: 2}
+  dialogueManager: {fileID: 926815745}
+  triggerType: 8
+  triggerOnce: 1
+  dialogueDelay: 0
+  moveAction: {fileID: 0}
+  waitTime: 10
+  nextDialogueTrigger: {fileID: 0}
+  dialogueID: Test2_Intro
+  loadingScreen: {fileID: 0}
+--- !u!4 &1516154613
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1516154611}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -6.15056, y: -2.32776, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1547,13 +1975,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DialogueTrigger
   dialogue: {fileID: 11400000, guid: a6b3949d3b0d53d46a2ca9c68b1c8a53, type: 2}
   dialogueManager: {fileID: 926815745}
-  triggerType: 7
+  triggerType: 5
   triggerOnce: 1
   dialogueDelay: 0
   moveAction: {fileID: 0}
   waitTime: 10
   nextDialogueTrigger: {fileID: 0}
   dialogueID: Fail2
+  loadingScreen: {fileID: 0}
 --- !u!4 &1530466527
 Transform:
   m_ObjectHideFlags: 0
@@ -1562,12 +1991,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1530466525}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1901131222}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1571295550
 GameObject:
@@ -1600,13 +2029,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DialogueTrigger
   dialogue: {fileID: 11400000, guid: 2f174de02cc57a94d86c8431193e7bde, type: 2}
   dialogueManager: {fileID: 926815745}
-  triggerType: 7
+  triggerType: 5
   triggerOnce: 1
   dialogueDelay: 0
   moveAction: {fileID: 0}
   waitTime: 10
   nextDialogueTrigger: {fileID: 0}
   dialogueID: Fail
+  loadingScreen: {fileID: 0}
 --- !u!4 &1571295552
 Transform:
   m_ObjectHideFlags: 0
@@ -1615,12 +2045,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1571295550}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1901131222}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1585439764
 GameObject:
@@ -1901,6 +2331,62 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1571295552}
+  - {fileID: 1530466527}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2007874680
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2007874682}
+  - component: {fileID: 2007874681}
+  m_Layer: 0
+  m_Name: Dialogue_StartTest3
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2007874681
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2007874680}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f3eee7f45678fb46b839794811514b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DialogueTrigger
+  dialogue: {fileID: 11400000, guid: e6e87f1867ce4824189b6eb5605905c7, type: 2}
+  dialogueManager: {fileID: 926815745}
+  triggerType: 8
+  triggerOnce: 1
+  dialogueDelay: 0
+  moveAction: {fileID: 0}
+  waitTime: 10
+  nextDialogueTrigger: {fileID: 0}
+  dialogueID: Test3_Intro
+  loadingScreen: {fileID: 0}
+--- !u!4 &2007874682
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2007874680}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -6.15056, y: -2.32776, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1942,6 +2428,7 @@ MonoBehaviour:
   waitTime: 10
   nextDialogueTrigger: {fileID: 2014821727}
   dialogueID: Teleport
+  loadingScreen: {fileID: 0}
 --- !u!4 &2014821728
 Transform:
   m_ObjectHideFlags: 0
@@ -2001,6 +2488,60 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44d0d295b717e664a9c170edf6d1a2ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DialogueState
+--- !u!1 &2085788925
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2085788927}
+  - component: {fileID: 2085788926}
+  m_Layer: 0
+  m_Name: Dialogue_Explore
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2085788926
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2085788925}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f3eee7f45678fb46b839794811514b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DialogueTrigger
+  dialogue: {fileID: 11400000, guid: c1498b57d8d46f84c999ba407a783e2a, type: 2}
+  dialogueManager: {fileID: 926815745}
+  triggerType: 7
+  triggerOnce: 1
+  dialogueDelay: 0
+  moveAction: {fileID: 0}
+  waitTime: 10
+  nextDialogueTrigger: {fileID: 0}
+  dialogueID: Explore1
+  loadingScreen: {fileID: 0}
+--- !u!4 &2085788927
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2085788925}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -6.15056, y: -2.32776, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2095867953
 GameObject:
   m_ObjectHideFlags: 0
@@ -2039,6 +2580,7 @@ MonoBehaviour:
   waitTime: 10
   nextDialogueTrigger: {fileID: 0}
   dialogueID: Tutorial
+  loadingScreen: {fileID: 0}
 --- !u!4 &2095867955
 Transform:
   m_ObjectHideFlags: 0
@@ -2118,7 +2660,13 @@ SceneRoots:
   - {fileID: 2014821728}
   - {fileID: 414636650}
   - {fileID: 2106730510}
-  - {fileID: 1571295552}
-  - {fileID: 1530466527}
   - {fileID: 1901131222}
   - {fileID: 1488704923}
+  - {fileID: 595786393}
+  - {fileID: 961990587}
+  - {fileID: 382780072}
+  - {fileID: 527459078}
+  - {fileID: 2007874682}
+  - {fileID: 1516154613}
+  - {fileID: 347317081}
+  - {fileID: 2085788927}

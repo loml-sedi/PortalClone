@@ -5,6 +5,8 @@ public class Teleport : MonoBehaviour
     public Transform otherPortal;
     private bool canTeleport = true;
 
+    [SerializeField] private PortalGun portalGun;
+
     public DialogueTrigger dialogueTrigger;
     public ExploreAreaTrigger exploreAreaTrigger;
     private void OnTriggerEnter2D(Collider2D collide)
@@ -12,33 +14,36 @@ public class Teleport : MonoBehaviour
         if (!canTeleport) return;
         if (!collide.CompareTag("Player") && !collide.CompareTag("Box")) return;
 
-
-        Rigidbody2D rb = collide.GetComponent<Rigidbody2D>();
-        collide.transform.position = otherPortal.position;
-        Vector2 velocity = rb.linearVelocity;
-        
-        rb.linearVelocity = velocity;
-
-        canTeleport = false; //disables both portals
-
-        Teleport destinationPortal = otherPortal.GetComponent<Teleport>();
-        destinationPortal.canTeleport = false;
-
-        if (collide.CompareTag("Player") && dialogueTrigger != null)
+        if (portalGun.bluePlaced && portalGun.orangePlaced)
         {
-            dialogueTrigger.TriggerDialogue();
-        }
+            Rigidbody2D rb = collide.GetComponent<Rigidbody2D>();
+            collide.transform.position = otherPortal.position;
+            Vector2 velocity = rb.linearVelocity;
 
-        if (collide.CompareTag("Player"))
-        {
-            if (exploreAreaTrigger != null)
+            rb.linearVelocity = velocity;
+
+            canTeleport = false; //disables both portals
+
+            Teleport destinationPortal = otherPortal.GetComponent<Teleport>();
+            destinationPortal.canTeleport = false;
+
+            if (collide.CompareTag("Player") && dialogueTrigger != null)
             {
-                exploreAreaTrigger.MeaningfulInteraction();
+                dialogueTrigger.TriggerDialogue();
             }
-        }
 
-        Invoke(nameof(EnablePortal), 0.2f);
-       destinationPortal.Invoke(nameof(EnablePortal), 0.2f);
+            if (collide.CompareTag("Player"))
+            {
+                if (exploreAreaTrigger != null)
+                {
+                    exploreAreaTrigger.MeaningfulInteraction();
+                }
+            }
+
+            Invoke(nameof(EnablePortal), 0.2f);
+            destinationPortal.Invoke(nameof(EnablePortal), 0.2f);
+
+        }
 
 
     }

@@ -1,6 +1,8 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class DialogueTrigger : MonoBehaviour
 {
@@ -32,6 +34,11 @@ public class DialogueTrigger : MonoBehaviour
     [Header("Dialogue ID")]
     public string dialogueID;
 
+    public LoadingScreen loadingScreen;
+
+    [Header("Drown Obstacles")]
+    public List<WaterDrown> drownObstacles;
+
 
     private void Start()
     {
@@ -42,8 +49,15 @@ public class DialogueTrigger : MonoBehaviour
 
         if (triggerType == DialogueTriggerType.StartLevel)
         {
-            TriggerDialogue();
+            StartCoroutine(StartLevelDialogue());
         }
+    }
+
+    private IEnumerator StartLevelDialogue()
+    {
+        yield return new WaitForSeconds(dialogueDelay);
+
+        TriggerDialogue();
     }
 
 
@@ -184,12 +198,35 @@ public class DialogueTrigger : MonoBehaviour
 
     public void DialogueFinished()
     {
-        if (triggerType != DialogueTriggerType.WaitTooLong)
-            return;
-
-        if (nextDialogueTrigger != null)
+        if (triggerType == DialogueTriggerType.WaitTooLong)
         {
-            nextDialogueTrigger.ForceTrigger();
+            if (nextDialogueTrigger != null)
+            {
+                nextDialogueTrigger.ForceTrigger();
+            }
+
+            return;
+        }
+
+        if (triggerType == DialogueTriggerType.EndLevel)
+        {
+            if (loadingScreen != null)
+            {
+                loadingScreen.LoadNextScene();
+            }
+
+            return;
+        }
+
+        if (triggerType == DialogueTriggerType.Drown)
+        {
+            Time.timeScale = 1f;
+
+            SceneManager.LoadScene(
+                SceneManager.GetActiveScene().name
+            );
+
+            return;
         }
     }
 
@@ -260,6 +297,21 @@ public class DialogueTrigger : MonoBehaviour
 
     public void ForceTrigger()
     {
+        TriggerDialogue();
+    }
+
+    public void TriggerDrown(WaterDrown obstacle)
+    {
+        if (triggerType != DialogueTriggerType.Drown)
+            return;
+
+        if (drownObstacles != null &&
+            drownObstacles.Count > 0 &&
+            !drownObstacles.Contains(obstacle))
+        {
+            return;
+        }
+
         TriggerDialogue();
     }
 }
