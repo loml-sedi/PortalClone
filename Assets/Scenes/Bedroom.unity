@@ -3327,6 +3327,7 @@ MonoBehaviour:
   nextDialogueTrigger: {fileID: 0}
   dialogueID: Test1_End
   loadingScreen: {fileID: 1743149606}
+  drownObstacles: []
 --- !u!4 &280690324
 Transform:
   m_ObjectHideFlags: 0
@@ -8330,6 +8331,7 @@ MonoBehaviour:
   nextDialogueTrigger: {fileID: 1212261756}
   dialogueID: WaitTooLong
   loadingScreen: {fileID: 0}
+  drownObstacles: []
 --- !u!4 &704709351
 Transform:
   m_ObjectHideFlags: 0
@@ -10096,11 +10098,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1148618699362149669, guid: ceb143507487a9c43bc6a6f8b8cbc769, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 4.49
+      value: -10.56
       objectReference: {fileID: 0}
     - target: {fileID: 1148618699362149669, guid: ceb143507487a9c43bc6a6f8b8cbc769, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.99
+      value: -0.02
       objectReference: {fileID: 0}
     - target: {fileID: 1148618699362149669, guid: ceb143507487a9c43bc6a6f8b8cbc769, type: 3}
       propertyPath: m_LocalPosition.z
@@ -17350,6 +17352,7 @@ MonoBehaviour:
   nextDialogueTrigger: {fileID: 0}
   dialogueID: Tutorial
   loadingScreen: {fileID: 0}
+  drownObstacles: []
 --- !u!4 &1212261757
 Transform:
   m_ObjectHideFlags: 0
