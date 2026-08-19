@@ -138,7 +138,10 @@ public class DialogueTrigger : MonoBehaviour
         if (triggerOnce && triggered)
             return;
 
-        if (triggerOnce &&
+        bool isDrownDialogue = triggerType == DialogueTriggerType.Drown;
+
+        if (!isDrownDialogue &&
+            triggerOnce &&
             !string.IsNullOrEmpty(dialogueID) &&
             DialogueState.Instance != null &&
             DialogueState.Instance.HasTriggered(dialogueID))
@@ -164,12 +167,15 @@ public class DialogueTrigger : MonoBehaviour
             return;
         }
 
-        triggered = true;
-
-        if (DialogueState.Instance != null &&
-            !string.IsNullOrEmpty(dialogueID))
+        if (!isDrownDialogue)
         {
-            DialogueState.Instance.MarkTriggered(dialogueID);
+            triggered = true;
+
+            if (DialogueState.Instance != null &&
+                !string.IsNullOrEmpty(dialogueID))
+            {
+                DialogueState.Instance.MarkTriggered(dialogueID);
+            }
         }
 
         if (dialogueDelay > 0f)
@@ -180,7 +186,7 @@ public class DialogueTrigger : MonoBehaviour
         {
             StartDialogue();
         }
-    }
+}
 
 
     private IEnumerator DelayedDialogue()
