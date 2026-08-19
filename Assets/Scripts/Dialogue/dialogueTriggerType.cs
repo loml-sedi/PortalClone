@@ -8,6 +8,7 @@ public enum DialogueTriggerType
 
     FirstGrab,
     Teleport,
+    Drown,
 
     CompletePuzzle,
     FailPuzzle,

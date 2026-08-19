@@ -2,10 +2,18 @@ using UnityEngine;
 
 public class WaterDrown : MonoBehaviour
 {
-    [SerializeField] string playerTag = "Player";
+    [SerializeField] private string playerTag = "Player";
+
+    [Header("Drown Dialogue")]
+    [SerializeField] private DialogueTrigger drownDialogue;
+
+    private bool drowned = false;
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+        if (drowned)
+            return;
+
         if (other.CompareTag(playerTag))
         {
             Drown();
@@ -14,7 +22,13 @@ public class WaterDrown : MonoBehaviour
 
     private void Drown()
     {
-        Debug.Log("Player drowned! Game paused.");
-        Time.timeScale = 0f;
+        drowned = true;
+
+        Debug.Log("Player drowned!");
+
+        if (drownDialogue != null)
+        {
+            drownDialogue.TriggerDrown(this);
+        }
     }
 }
