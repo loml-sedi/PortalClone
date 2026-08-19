@@ -13,8 +13,10 @@ public class PortalGun : MonoBehaviour
     public float portalDistance = 10f;
 
     public PlayerGrab playerGrab;
+
     public DialogueTrigger portalTrigger;
     public DialogueTrigger firstPortalTrigger;
+    public ExploreAreaTrigger exploreAreaTrigger;
 
     public void shootBlue(InputAction.CallbackContext context)
     {
@@ -116,6 +118,11 @@ public class PortalGun : MonoBehaviour
             Debug.Log("Portal surface hit!");
 
             portal.transform.position = hit.point;
+
+            if (exploreAreaTrigger != null)
+            {
+                exploreAreaTrigger.MeaningfulInteraction();
+            }
 
             if (portalTrigger != null)
             {
