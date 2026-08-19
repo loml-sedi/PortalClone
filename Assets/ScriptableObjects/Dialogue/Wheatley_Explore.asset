@@ -10,6 +10,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9e58bd8e3008acc4aa546327b6652b97, type: 3}
-  m_Name: Wheatley_FirstPortal
+  m_Name: Wheatley_Explore
   m_EditorClassIdentifier: Assembly-CSharp::DialogueSequence
-  lines: []
+  lines:
+  - speaker: 0
+    text: You know you can actually do something.
+    displayTime: 2.5
+  - speaker: 0
+    text: Just thought I'd mention that
+    displayTime: 2.2
+  - speaker: 0
+    text: Unless you're enjoying the scenery.
+    displayTime: 2.5
+  - speaker: 0
+    text: In which case... carry on I suppose.
+    displayTime: 3

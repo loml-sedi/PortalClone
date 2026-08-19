@@ -18,11 +18,19 @@ public class DialogueManager : MonoBehaviour
 
     private DialogueTrigger currentTrigger;
 
+    [SerializeField] private string openingDialogueID = "opening";
+
 
     void Start()
     {
         if (openingDialogue != null)
         {
+            if (DialogueState.Instance != null &&
+                DialogueState.Instance.HasTriggered(openingDialogueID))
+            {
+                return;
+            }
+
             Invoke(nameof(StartOpeningDialogue), openingDialogueDelay);
         }
     }
@@ -39,19 +47,18 @@ public class DialogueManager : MonoBehaviour
         HideDialogue();
     }
 
-
     public void StartDialogue(DialogueSequence dialogue)
     {
         currentDialogue = dialogue;
 
         currentLineIndex = 0;
 
-        currentTrigger = null;
-
         ShowDialogue();
 
         DisplayCurrentLine();
     }
+
+
     public void StartDialogue(DialogueSequence dialogue, DialogueTrigger trigger)
     {
         currentDialogue = dialogue;
@@ -150,6 +157,17 @@ public class DialogueManager : MonoBehaviour
 
     void StartOpeningDialogue()
     {
+        if (DialogueState.Instance != null &&
+            DialogueState.Instance.HasTriggered(openingDialogueID))
+        {
+            return;
+        }
+
+        if (DialogueState.Instance != null)
+        {
+            DialogueState.Instance.MarkTriggered(openingDialogueID);
+        }
+
         StartDialogue(openingDialogue);
     }
 

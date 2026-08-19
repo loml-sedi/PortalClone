@@ -5,7 +5,8 @@ public class Teleport : MonoBehaviour
     public Transform otherPortal;
     private bool canTeleport = true;
 
-    public DialogueTrigger dialogueTrigger; 
+    public DialogueTrigger dialogueTrigger;
+    public ExploreAreaTrigger exploreAreaTrigger;
     private void OnTriggerEnter2D(Collider2D collide)
     {
         if (!canTeleport) return;
@@ -26,6 +27,14 @@ public class Teleport : MonoBehaviour
         if (collide.CompareTag("Player") && dialogueTrigger != null)
         {
             dialogueTrigger.TriggerDialogue();
+        }
+
+        if (collide.CompareTag("Player"))
+        {
+            if (exploreAreaTrigger != null)
+            {
+                exploreAreaTrigger.MeaningfulInteraction();
+            }
         }
 
         Invoke(nameof(EnablePortal), 0.2f);
