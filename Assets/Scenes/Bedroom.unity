@@ -5172,6 +5172,7 @@ MonoBehaviour:
   openingDialogue: {fileID: 11400000, guid: 0dcca02457757854fa7ad88efae9b35a, type: 2}
   openingDialogueDelay: 5
   openingDialogueID: Opening
+  dialogueLocked: 0
 --- !u!114 &417192608
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7290,7 +7291,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerController
   rb: {fileID: 641796906}
   moveSpeed: 4
-  jumpForce: 3
+  jumpForce: 5
   spriteRenderer: {fileID: 641796907}
   groundCheck: {fileID: 750904387}
   groundCheckRadius: 0.2
