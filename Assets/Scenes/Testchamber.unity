@@ -29020,7 +29020,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0412e777d00d4c24f86a24d21ef5226d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NewMonoBehaviourScript
-  endLevelDialogue: {fileID: 0}
+  endLevelDialogue: {fileID: 1156024730}
 --- !u!61 &1208694549
 BoxCollider2D:
   m_ObjectHideFlags: 0

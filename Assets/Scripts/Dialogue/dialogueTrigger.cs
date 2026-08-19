@@ -40,6 +40,7 @@ public class DialogueTrigger : MonoBehaviour
     public List<WaterDrown> drownObstacles;
 
 
+
     private void Start()
     {
         if (triggerType == DialogueTriggerType.WaitTooLong)
@@ -263,6 +264,7 @@ public class DialogueTrigger : MonoBehaviour
         if (triggerType == DialogueTriggerType.EndLevel)
         {
             TriggerDialogue();
+            dialogueManager.dialogueLocked = true;
         }
     }
 
