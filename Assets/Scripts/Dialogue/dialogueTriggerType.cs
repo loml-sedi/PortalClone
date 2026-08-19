@@ -4,9 +4,6 @@ public enum DialogueTriggerType
 {
     None,
 
-    EnterRoom,
-
-    PressButton,
     ActivatePortal,
 
     FirstGrab,
@@ -17,7 +14,6 @@ public enum DialogueTriggerType
 
     WaitTooLong,
     ExploreArea,
-    RetryPuzzle,
 
     StartLevel,
     EndLevel
