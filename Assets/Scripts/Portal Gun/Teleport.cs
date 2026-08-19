@@ -11,8 +11,12 @@ public class Teleport : MonoBehaviour
     public ExploreAreaTrigger exploreAreaTrigger;
     private void OnTriggerEnter2D(Collider2D collide)
     {
+        Debug.Log("Something entered portal: " + collide.name);
+
         if (!canTeleport) return;
-        if (!collide.CompareTag("Player")  || !collide.CompareTag("Box")) return;
+        if (!collide.CompareTag("Player")  && !collide.CompareTag("Box")) return;
+
+        Debug.Log("Blue: " + portalGun.bluePlaced + " Orange: " + portalGun.orangePlaced);
 
         if (portalGun.bluePlaced && portalGun.orangePlaced)
         {
