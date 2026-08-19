@@ -12,4 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e58bd8e3008acc4aa546327b6652b97, type: 3}
   m_Name: Wheatley_Drown
   m_EditorClassIdentifier: Assembly-CSharp::DialogueSequence
-  lines: []
+  lines:
+  - speaker: 0
+    text: Oh! That's not good
+    displayTime: 1.8
+  - speaker: 0
+    text: You probaby shouldn't have done that
+    displayTime: 2.5

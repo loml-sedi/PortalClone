@@ -10,21 +10,27 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9e58bd8e3008acc4aa546327b6652b97, type: 3}
-  m_Name: Wheatly_Opening
+  m_Name: Wheatley_Test4
   m_EditorClassIdentifier: Assembly-CSharp::DialogueSequence
   lines:
   - speaker: 0
-    text: Oh! You're awake?
-    displayTime: 1.5
+    text: Oh! There you are.
+    displayTime: 1.8
   - speaker: 0
-    text: Right, right. Just give me a moment.
+    text: I was beginning to think they'd forgotten about me.
+    displayTime: 2.8
+  - speaker: 0
+    text: But no! Here I am.
+    displayTime: 2
+  - speaker: 0
+    text: "\u201CAnd I've got another test for you."
     displayTime: 2.3
   - speaker: 0
-    text: We're going to get you out of here.
-    displayTime: 3.3
+    text: Don't worry, this one should be perfectly safe.
+    displayTime: 2.8
   - speaker: 0
-    text: Press right click to place a Portal
-    displayTime: 3.2
+    text: "\u2026Probably."
+    displayTime: 1.5
   - speaker: 0
-    text: And obviously left click to place another one
-    displayTime: 3.2
+    text: Right. Off you go!
+    displayTime: 1.8

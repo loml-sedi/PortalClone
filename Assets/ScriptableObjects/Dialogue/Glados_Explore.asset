@@ -10,21 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9e58bd8e3008acc4aa546327b6652b97, type: 3}
-  m_Name: Wheatly_Opening
+  m_Name: Glados_Explore
   m_EditorClassIdentifier: Assembly-CSharp::DialogueSequence
   lines:
-  - speaker: 0
-    text: Oh! You're awake?
-    displayTime: 1.5
-  - speaker: 0
-    text: Right, right. Just give me a moment.
-    displayTime: 2.3
-  - speaker: 0
-    text: We're going to get you out of here.
-    displayTime: 3.3
-  - speaker: 0
-    text: Press right click to place a Portal
+  - speaker: 1
+    text: Are you looking for something?
+    displayTime: 2
+  - speaker: 1
+    text: Because wandering around the room is not part of the test.
     displayTime: 3.2
-  - speaker: 0
-    text: And obviously left click to place another one
-    displayTime: 3.2
+  - speaker: 1
+    text: "\u201CAlthough, given your progress so far, perhaps it should be"
+    displayTime: 3
