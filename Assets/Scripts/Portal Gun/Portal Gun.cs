@@ -18,7 +18,6 @@ public class PortalGun : MonoBehaviour
     public bool orangePlaced = false;
 
     public DialogueTrigger portalTrigger;
-    public DialogueTrigger firstPortalTrigger;
     public ExploreAreaTrigger exploreAreaTrigger;
 
     public void shootBlue(InputAction.CallbackContext context)

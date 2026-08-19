@@ -534,6 +534,53 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
   m_BlendShapeWeights: []
+--- !u!1 &66381709
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 66381711}
+  - component: {fileID: 66381710}
+  m_Layer: 0
+  m_Name: Dialogue_Explore
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &66381710
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 66381709}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70ca3ae3f1323804a97a250d49c431d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ExploreAreaTrigger
+  inactivityTime: 30
+  dialogueTrigger: {fileID: 634460779}
+--- !u!4 &66381711
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 66381709}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 634460780}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &75078110
 GameObject:
   m_ObjectHideFlags: 0
@@ -6629,7 +6676,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DialogueTrigger
   dialogue: {fileID: 11400000, guid: c95e9b792b3328340aa17d46dc6f7fe0, type: 2}
   dialogueManager: {fileID: 1435016711}
-  triggerType: 9
+  triggerType: 10
   triggerOnce: 1
   dialogueDelay: 0
   moveAction: {fileID: 0}
@@ -6637,6 +6684,7 @@ MonoBehaviour:
   nextDialogueTrigger: {fileID: 0}
   dialogueID: Test2_End
   loadingScreen: {fileID: 888770820}
+  drownObstacles: []
 --- !u!4 &546556788
 Transform:
   m_ObjectHideFlags: 0
@@ -8175,6 +8223,61 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
   m_BlendShapeWeights: []
+--- !u!1 &634460778
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 634460780}
+  - component: {fileID: 634460779}
+  m_Layer: 0
+  m_Name: Trigger
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &634460779
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 634460778}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f3eee7f45678fb46b839794811514b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DialogueTrigger
+  dialogue: {fileID: 11400000, guid: c1498b57d8d46f84c999ba407a783e2a, type: 2}
+  dialogueManager: {fileID: 1435016711}
+  triggerType: 8
+  triggerOnce: 0
+  dialogueDelay: 0
+  moveAction: {fileID: 0}
+  waitTime: 10
+  nextDialogueTrigger: {fileID: 0}
+  dialogueID: Explore1
+  loadingScreen: {fileID: 0}
+  drownObstacles: []
+--- !u!4 &634460780
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 634460778}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 66381711}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &639085898
 GameObject:
   m_ObjectHideFlags: 0
@@ -17984,6 +18087,61 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2053449067688082772, guid: 687e8264f74593214ae9944815419d8e, type: 3}
   m_PrefabInstance: {fileID: 1393997693}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1121947306
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1121947308}
+  - component: {fileID: 1121947307}
+  m_Layer: 0
+  m_Name: Dialogue_Fail2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1121947307
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1121947306}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f3eee7f45678fb46b839794811514b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DialogueTrigger
+  dialogue: {fileID: 11400000, guid: a6b3949d3b0d53d46a2ca9c68b1c8a53, type: 2}
+  dialogueManager: {fileID: 1435016711}
+  triggerType: 6
+  triggerOnce: 1
+  dialogueDelay: 0
+  moveAction: {fileID: 0}
+  waitTime: 10
+  nextDialogueTrigger: {fileID: 0}
+  dialogueID: Fail2
+  loadingScreen: {fileID: 0}
+  drownObstacles: []
+--- !u!4 &1121947308
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1121947306}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1331046303}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1125247643
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -19624,6 +19782,7 @@ MonoBehaviour:
   nextDialogueTrigger: {fileID: 0}
   dialogueID: Tutorial
   loadingScreen: {fileID: 0}
+  drownObstacles: []
 --- !u!4 &1225136049
 Transform:
   m_ObjectHideFlags: 0
@@ -21052,6 +21211,59 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8126ae7414fb4b6e1aec894b92e4bb5e, type: 3}
+--- !u!1 &1331046301
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1331046303}
+  - component: {fileID: 1331046302}
+  m_Layer: 0
+  m_Name: PuzleTimeout
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1331046302
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1331046301}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78d26365ddd26a144b3978c6872bc2fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PuzzleTimeoutManager
+  timeoutDialogues:
+  - time: 45
+    dialogueTrigger: {fileID: 1569498676}
+    triggered: 0
+  - time: 90
+    dialogueTrigger: {fileID: 1121947307}
+    triggered: 0
+--- !u!4 &1331046303
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1331046301}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1569498677}
+  - {fileID: 1121947308}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1354406574
 GameObject:
   m_ObjectHideFlags: 0
@@ -22209,7 +22421,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 2030171174}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1435016711
 MonoBehaviour:
@@ -23683,6 +23895,61 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7696088367166888946, guid: 43221a7f201d620c99aa8aacdd068b5e, type: 3}
   m_PrefabInstance: {fileID: 1496653855}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1569498675
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1569498677}
+  - component: {fileID: 1569498676}
+  m_Layer: 0
+  m_Name: Dialogue_Fail1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1569498676
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1569498675}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f3eee7f45678fb46b839794811514b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DialogueTrigger
+  dialogue: {fileID: 11400000, guid: 2f174de02cc57a94d86c8431193e7bde, type: 2}
+  dialogueManager: {fileID: 1435016711}
+  triggerType: 6
+  triggerOnce: 1
+  dialogueDelay: 0
+  moveAction: {fileID: 0}
+  waitTime: 10
+  nextDialogueTrigger: {fileID: 0}
+  dialogueID: Fail
+  loadingScreen: {fileID: 0}
+  drownObstacles: []
+--- !u!4 &1569498677
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1569498675}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1331046303}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1574627128
 GameObject:
   m_ObjectHideFlags: 0
@@ -23806,7 +24073,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DialogueTrigger
   dialogue: {fileID: 11400000, guid: a41e0c6e90a533f43832d1e34cdea762, type: 2}
   dialogueManager: {fileID: 1435016711}
-  triggerType: 6
+  triggerType: 7
   triggerOnce: 0
   dialogueDelay: 0
   moveAction: {fileID: -1680190386980627800, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
@@ -23814,6 +24081,7 @@ MonoBehaviour:
   nextDialogueTrigger: {fileID: 1225136048}
   dialogueID: WaitTooLong
   loadingScreen: {fileID: 0}
+  drownObstacles: []
 --- !u!4 &1580775228
 Transform:
   m_ObjectHideFlags: 0
@@ -26575,7 +26843,6 @@ MonoBehaviour:
   bluePlaced: 0
   orangePlaced: 0
   portalTrigger: {fileID: 0}
-  firstPortalTrigger: {fileID: 0}
   exploreAreaTrigger: {fileID: 0}
 --- !u!4 &1806163359
 Transform:
@@ -28053,8 +28320,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1435016710}
+  m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2030171175
@@ -30007,7 +30273,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DialogueTrigger
   dialogue: {fileID: 11400000, guid: f827c59ab1c1c2e408b8f06393aef932, type: 2}
   dialogueManager: {fileID: 1435016711}
-  triggerType: 8
+  triggerType: 9
   triggerOnce: 1
   dialogueDelay: 0
   moveAction: {fileID: 0}
@@ -30015,6 +30281,7 @@ MonoBehaviour:
   nextDialogueTrigger: {fileID: 0}
   dialogueID: Test2_Intro
   loadingScreen: {fileID: 0}
+  drownObstacles: []
 --- !u!4 &2086827994
 Transform:
   m_ObjectHideFlags: 0
@@ -31227,10 +31494,12 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 1274482718}
+  - {fileID: 1331046303}
   - {fileID: 1225136049}
   - {fileID: 1580775228}
   - {fileID: 546556788}
   - {fileID: 2086827994}
+  - {fileID: 66381711}
   - {fileID: 2030171174}
   - {fileID: 706797335}
   - {fileID: 1890431489}
@@ -31258,3 +31527,4 @@ SceneRoots:
   - {fileID: 324577705}
   - {fileID: 1722050291}
   - {fileID: 639085899}
+  - {fileID: 1435016710}
