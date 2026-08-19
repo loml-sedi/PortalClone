@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -22,6 +23,21 @@ public class DialogueManager : MonoBehaviour
 
     public bool dialogueLocked = false;
 
+    [System.Serializable]
+    public class QueuedDialogue
+    {
+        public DialogueSequence dialogue;
+        public DialogueTrigger trigger;
+
+        public QueuedDialogue(DialogueSequence dialogue, DialogueTrigger trigger)
+        {
+            this.dialogue = dialogue;
+            this.trigger = trigger;
+        }
+    }
+
+    private Queue<QueuedDialogue> dialogueQueue = new Queue<QueuedDialogue>();
+    private bool dialoguePlaying = false;
 
     void Start()
     {
@@ -54,12 +70,16 @@ public class DialogueManager : MonoBehaviour
         if (dialogueLocked)
             return;
 
-        currentDialogue = dialogue;
+        if (dialoguePlaying)
+            return;
 
+        dialoguePlaying = true;
+
+        currentDialogue = dialogue;
         currentLineIndex = 0;
+        currentTrigger = null;
 
         ShowDialogue();
-
         DisplayCurrentLine();
     }
 
@@ -69,15 +89,22 @@ public class DialogueManager : MonoBehaviour
         if (dialogueLocked)
             return;
 
+        if (dialoguePlaying)
+        {
+            dialogueQueue.Enqueue(
+                new QueuedDialogue(dialogue, trigger)
+            );
+
+            return;
+        }
+
+        dialoguePlaying = true;
+
         currentDialogue = dialogue;
-
         currentLineIndex = 0;
-
-        
         currentTrigger = trigger;
 
         ShowDialogue();
-
         DisplayCurrentLine();
     }
 
@@ -127,9 +154,22 @@ public class DialogueManager : MonoBehaviour
         currentDialogue = null;
         currentLineIndex = 0;
         currentTrigger = null;
+
+        dialoguePlaying = false;
+
         if (finishedTrigger != null)
         {
             finishedTrigger.DialogueFinished();
+        }
+
+        if (dialogueLocked)
+            return;
+
+        if (dialogueQueue.Count > 0)
+        {
+            QueuedDialogue nextDialogue = dialogueQueue.Dequeue();
+
+            StartDialogue(nextDialogue.dialogue, nextDialogue.trigger);
         }
     }
 
