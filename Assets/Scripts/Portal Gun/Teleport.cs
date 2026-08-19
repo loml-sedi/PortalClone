@@ -12,7 +12,7 @@ public class Teleport : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collide)
     {
         if (!canTeleport) return;
-        if (!collide.CompareTag("Player") && !collide.CompareTag("Box")) return;
+        if (!collide.CompareTag("Player")  || !collide.CompareTag("Box")) return;
 
         if (portalGun.bluePlaced && portalGun.orangePlaced)
         {
