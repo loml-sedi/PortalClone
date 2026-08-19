@@ -20,6 +20,8 @@ public class DialogueManager : MonoBehaviour
 
     [SerializeField] private string openingDialogueID = "opening";
 
+    public bool dialogueLocked = false;
+
 
     void Start()
     {
@@ -49,6 +51,9 @@ public class DialogueManager : MonoBehaviour
 
     public void StartDialogue(DialogueSequence dialogue)
     {
+        if (dialogueLocked)
+            return;
+
         currentDialogue = dialogue;
 
         currentLineIndex = 0;
@@ -61,6 +66,9 @@ public class DialogueManager : MonoBehaviour
 
     public void StartDialogue(DialogueSequence dialogue, DialogueTrigger trigger)
     {
+        if (dialogueLocked)
+            return;
+
         currentDialogue = dialogue;
 
         currentLineIndex = 0;
